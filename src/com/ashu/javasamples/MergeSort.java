@@ -18,7 +18,7 @@ public class MergeSort {
 }
 
 class Merge {
-	
+
 	private int[] array;
 	private int[] result;
 	private int resultIndex = 0;
@@ -34,12 +34,13 @@ class Merge {
 	public void sort(int start, int end) {
 
 		int mid = (start + end) / 2;
+		
+		System.out.println(start + "   " + mid + "  "+ end);
 		if (start <= end) {
 			sort(start, mid);
 			sort(mid + 1, end);
 			merge(start, mid, end);
 		}
-		return;
 	}
 
 	private void merge(int start, int mid, int end) {
@@ -66,6 +67,11 @@ class Merge {
 
 		while (s2 <= end) {
 			result[resultIndex++] = array[s2++];
+		}
+
+		for (int i : result) {
+			System.out.println("Result now: ");
+			System.out.println(i);
 		}
 
 	}
