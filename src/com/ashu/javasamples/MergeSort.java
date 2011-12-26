@@ -15,13 +15,12 @@ public class MergeSort {
 		}
 
 	}
-
 }
 
 class Merge {
+	
 	private int[] array;
 	private int[] result;
-
 	private int resultIndex = 0;
 
 	public void setArray(int[] a) {
@@ -34,17 +33,18 @@ class Merge {
 
 	public void sort(int start, int end) {
 
+		int mid = (start + end) / 2;
 		if (start <= end) {
-			int mid = (start + end) / 2;
 			sort(start, mid);
 			sort(mid + 1, end);
 			merge(start, mid, end);
 		}
+		return;
 	}
 
 	private void merge(int start, int mid, int end) {
 		int s1 = start;
-		int s2 = mid;
+		int s2 = mid + 1;
 
 		while (s1 <= mid && s2 <= end) {
 			if (array[s1] < array[s2]) {
@@ -61,11 +61,11 @@ class Merge {
 		}
 
 		while (s1 <= mid) {
-			array[s1++] = result[resultIndex++];
+			result[resultIndex++] = array[s1++];
 		}
 
 		while (s2 <= end) {
-			array[s2++] = result[resultIndex++];
+			result[resultIndex++] = array[s2++];
 		}
 
 	}
