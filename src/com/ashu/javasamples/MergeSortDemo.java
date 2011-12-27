@@ -1,6 +1,6 @@
 package com.ashu.javasamples;
 
-public class MergeSort {
+public class MergeSortDemo {
 
 	public static void main(String[] args) {
 
