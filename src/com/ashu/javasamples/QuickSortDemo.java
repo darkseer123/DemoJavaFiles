@@ -4,9 +4,8 @@ public class QuickSortDemo {
 
 	public static void main(String[] args) {
 
-		int[] arr = { 8, 5, 7, 1, 6, 3, 4, 2, 10, 9 };
+		int[] arr = { 8, 5, 7, 1, 6, 3, 4, 2 };
 		QuickSort sort = new QuickSort(arr);
-		sort.setArray(arr);
 		sort.sortArray(0, arr.length - 1);
 		int[] result = sort.getArray();
 
@@ -35,48 +34,44 @@ class QuickSort {
 	}
 
 	public void sortArray(int start, int end) {
+
+		System.out.println(start + "  " + end);
 		if (start < end) {
-			int key = partitionArray(start, end);
-			sortArray(start, key);
-			sortArray(key + 1, end);
+			int partition = partitionArray(start, end);
+			sortArray(start, partition);
+			sortArray(partition + 1, end);
 		}
 
 	}
 
 	private int partitionArray(int start, int end) {
-		int key = array[start];
-
-		int up = start + 1;
+		
+		int key = start;
+		int up = start;
 		int down = end;
 
-		while (up < down && up <= end && down >= start) {
+		while (up < down) {
 
-			if (key < array[up]) {
+			while (up < end && array[key] >= array[up]) {
 				up++;
 			}
-			
-			if (key > array[down]) {
+
+			while (down > start && array[key] < array[down]) {
 				down--;
 			}
 			
-			swap(up, down);
+			swap(array[key], array[down]);
+			key = down;
 			
 		}
 		
-		while (down < up - 1) {
-			array[down] = array[down+1];
-			down++;
-		}
-		
-		array[down] = key;
-
-		return down;
+		return key;
 	}
-	
-	private void swap (int a, int b) {
-		int c = array[a];
-		array[a] = array[b];
-		array[b] = c;
+
+	private void swap(int a, int b) {
+		int c = a;
+		a = b;
+		b = c;
 	}
 
 }
