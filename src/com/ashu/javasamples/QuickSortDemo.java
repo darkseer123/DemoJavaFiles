@@ -35,7 +35,6 @@ class QuickSort {
 
 	public void sortArray(int start, int end) {
 
-		System.out.println(start + "  " + end);
 		if (start < end) {
 			int partition = partitionArray(start, end);
 			sortArray(start, partition);
@@ -60,7 +59,7 @@ class QuickSort {
 				down--;
 			}
 			
-			swap(array[key], array[down]);
+			swap(key, down);
 			key = down;
 			
 		}
@@ -69,9 +68,9 @@ class QuickSort {
 	}
 
 	private void swap(int a, int b) {
-		int c = a;
-		a = b;
-		b = c;
+		int c = array[a];
+		array[a] = array[b];
+		array[b] = c;
 	}
 
 }
