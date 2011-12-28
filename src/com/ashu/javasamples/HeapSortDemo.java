@@ -6,7 +6,7 @@ public class HeapSortDemo {
 
 	public static void main(String[] args) {
 
-		int[] arr = { 8, 5, 7, 1, 6, 3, 4, 2 };
+		int[] arr = { 8, 5, 7, 1, 6, 3, 4, 2, 12, 9, 1 };
 
 		// Create HeapSort Object
 		HeapSort sort = new HeapSort(arr);
@@ -56,6 +56,10 @@ class HeapSort {
 		}
 	}
 
+	/**
+	 * 
+	 * @param count
+	 */
 	private void heapify(int count) {
 		int parent = count / 2 - 1;
 
@@ -66,6 +70,11 @@ class HeapSort {
 
 	}
 
+	/**
+	 * This function sifts down the array so that parent > its childs
+	 * @param start - The heap root 
+	 * @param end - The last element present in the heap passed
+	 */
 	private void siftdown(int start, int end) {
 		int root = start;
 
@@ -91,10 +100,14 @@ class HeapSort {
 
 	}
 
+	/**
+	 * This function swaps the values at positions given in an arraylist 
+	 * @param a The first position
+	 * @param b The second position
+	 */
 	private void swapValues(int a, int b) {
 		Object c = list.get(a);
 		list.set(a, list.get(b));
 		list.set(b, (Integer) c);
 	}
-
 }
