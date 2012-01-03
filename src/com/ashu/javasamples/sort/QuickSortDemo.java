@@ -1,4 +1,4 @@
-package com.ashu.javasamples;
+package com.ashu.javasamples.sort;
 
 public class QuickSortDemo {
 

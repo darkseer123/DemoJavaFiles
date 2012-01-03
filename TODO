@@ -1,0 +1,23 @@
+=======================================================
+	String formatting
+=======================================================
+Chapter 7 - Dennis Ritchie
+
+
+=======================================================
+	Dictionary Data Structure
+=======================================================
+Do you want close match to be offered suggestions? 
+	- You may then need to things like generating permutations on what the user entered and for each permutation see if it exists in the dico: 
+ 		if it does, you'd then need to compute its' Levenhstein Edit Distance and suggest first the words that have the shortest LED.
+ 	
+	- Do you want most likely matches to be auto-completed/suggested (like what Google does)? 
+		You'd then need a very advanced data structure like a BK-tree (basically a tree of LED if I understand it correctly).
+		
+How many words will you have in your dictionary? 
+	- You won't be able to use a dictionary made of 400 000 words using Strings and other heavyweight Java objects / data structure 
+		without a serious performance hit 
+		(once again: a dictionary is more than just one hashtable, a dictionary typically involve several datastructures).
+		This won't easily fit in your users' computer memory.
+	- There are known, searchable, ways to store words where every single word can be packed on fewer than 15 bits per word 
+		(fewer than 15 bits per word, you read correctly).
