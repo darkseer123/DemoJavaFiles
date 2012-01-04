@@ -1,0 +1,33 @@
+===============================================================================
+						Sum of Subset Problem
+===============================================================================
+w = an array of positive integers sorted in non-decreasing order.
+W = the target sum value
+include = an array or arraylist of the solutions who's weight adds up to W. 
+			After the print statement, this array can be deleted so that it 
+			can store the next solution.
+weight = weight of elements in the include array.
+total = weight of the remaining elements not in the include array.
+
+public static void sum_of_subsets(index i, int weight, int total)
+{
+     if(promising(i))
+     {
+          if(weight == W)
+          {
+               System.out.print(include[1] through include[i]);
+          }
+          else
+          {
+               include[i + 1] = "yes";     //Include w[i + 1]
+               sum_of)subsets(i + 1, weight + w[i + 1], total - w[i + 1]);
+               include[i + 1] = "no";      //Do not include w[i + 1]
+               sum_of_subsets(i + 1, weight, total - w[i + 1]);
+          }
+     }
+}
+
+public static boolean promising(index i)
+{
+     return (weight + total >= W) && (weight == W || weight + w[i + 1] <= W);
+}
