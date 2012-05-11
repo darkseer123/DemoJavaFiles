@@ -1,5 +1,7 @@
 package com.ashu.javasamples.tree;
 
+import java.util.ArrayList;
+
 public class BSTDemo {
 
 	public static void main(String[] args) {
@@ -12,12 +14,22 @@ public class BSTDemo {
 			tree.insert(n);
 		}
 		
-		int toDelete = 8;
+		/*int toDelete = 8;
 		System.out.println("Deleting " + toDelete);
 		tree.delete(tree.create(toDelete));
 		
 		System.out.println ("The tree (inorder) is: ");
-		tree.traverseInorder(tree.getRootNode());
+		tree.traverseInorder(tree.getRootNode());*/
+		
+		ArrayList<ArrayList<Node>> list = tree.getRootToLeafPaths(tree.getRootNode(), new ArrayList<Node>(), new ArrayList<ArrayList<Node>>());
+		
+		for (ArrayList<Node> path : list) {
+			for (Node n : path) {
+				System.out.print(n.element + " -> ");
+			}
+			
+			System.out.println();
+		}
 		
 	}
 

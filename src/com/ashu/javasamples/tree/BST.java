@@ -1,5 +1,7 @@
 package com.ashu.javasamples.tree;
 
+import java.util.ArrayList;
+
 public class BST {
 
 	private Node root;
@@ -104,5 +106,27 @@ public class BST {
 			System.out.println(node.element);
 			traverseInorder(node.rptr);
 		}
+	}
+	
+	public ArrayList<ArrayList<Node>> getRootToLeafPaths(Node n, ArrayList<Node> path, ArrayList<ArrayList<Node>> list) {
+		
+		if (n == null) {
+			return null;
+		}
+		
+		path.add(n);
+		
+		if (n.lptr == null && n.rptr == null) {
+			list.add(path);
+			return list;
+		}
+		
+		ArrayList<Node> lpath = new ArrayList<Node>(path);
+		ArrayList<Node> rpath = new ArrayList<Node>(path);
+		getRootToLeafPaths(n.lptr, lpath, list);
+		getRootToLeafPaths(n.rptr, rpath, list);
+		
+		return list;
+		
 	}
 }
